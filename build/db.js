@@ -64,7 +64,7 @@ function updateUser(userid, field, value, response) {
             if (err)
                 throw err;
             db.close();
-            response.send(result);
+            response.json(result);
         });
     });
 }
@@ -78,7 +78,7 @@ function getUser(userid, response) {
             if (err)
                 throw err;
             db.close();
-            response.send(result);
+            response.json(result);
         });
     });
 }
@@ -92,7 +92,7 @@ function getAllUsers(response) {
             if (err)
                 throw err;
             db.close();
-            response.send(result);
+            response.json(result);
         });
     });
 }
@@ -123,7 +123,7 @@ function getAllUsersWithPost(userid, response) {
             if (err)
                 throw err;
             db.close();
-            response.send(res);
+            response.json(res);
         });
     });
 }

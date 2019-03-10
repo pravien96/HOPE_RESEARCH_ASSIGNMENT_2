@@ -54,7 +54,7 @@ export function updateUser(userid:string, field:string, value:string, response){
 	  dbo.collection("users").updateOne({"id":parseInt(userid)}, {$set:JSON.parse("{\""+field+"\":\""+value+"\"}")}, function(err, result) {
 	    if (err) throw err;
 	    db.close();
-	    response.send(result);
+	    response.json(result);
 	  });
 	});
 }
@@ -66,7 +66,7 @@ export function getUser(userid, response) {
 	  dbo.collection("users").findOne({'id':parseInt(userid)}, function(err, result) {
 	    if (err) throw err;
 	    db.close();
-	    response.send(result);
+	    response.json(result);
 	  });
 	});
 }
@@ -78,7 +78,7 @@ export function getAllUsers(response) {
 	  dbo.collection("users").find({}).toArray(function(err, result) {
 	    if (err) throw err;
 	    db.close();
-	    response.send(result);
+	    response.json(result);
 	  });
 	});
 }
@@ -108,7 +108,7 @@ export function getAllUsersWithPost(userid:string, response){
 	    ]).toArray(function(err, res) {
 	    if (err) throw err;
 	    db.close();
-	    response.send(res);
+	    response.json(res);
 
 	  });
 	});
