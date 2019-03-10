@@ -51,7 +51,6 @@ export function updateUser(userid:string, field:string, value:string, response){
 	MongoClient.connect(url, function(err, db) {
 	  if (err) throw err;
 	  var dbo = db.db("master");
-	  console.log(JSON.parse("{\""+field+"\":"+value+"}"));
 	  dbo.collection("users").updateOne({"id":parseInt(userid)}, {$set:JSON.parse("{\""+field+"\":\""+value+"\"}")}, function(err, result) {
 	    if (err) throw err;
 	    db.close();
