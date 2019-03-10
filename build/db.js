@@ -60,7 +60,6 @@ function updateUser(userid, field, value, response) {
         if (err)
             throw err;
         var dbo = db.db("master");
-        console.log(JSON.parse("{\"" + field + "\":" + value + "}"));
         dbo.collection("users").updateOne({ "id": parseInt(userid) }, { $set: JSON.parse("{\"" + field + "\":\"" + value + "\"}") }, function (err, result) {
             if (err)
                 throw err;
